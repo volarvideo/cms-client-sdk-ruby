@@ -15,21 +15,20 @@ require 'aws-sdk'
 # * http://rubygems.org/gems/rest-client
 # * http://rubygems.org/gems/json
 class Volar
-	# Access this attribute to see the last error that occurred
+	# @attr_reader [String] Access this attribute to see the last error that occurred
 	attr_reader :error
-	# Storage of api key set by constructor
+	# @!attribute [String] Storage of api key set by constructor
 	attr_accessor :api_key
-	# Storage of secret key set by constructor
+	# @!attribute [String] Storage of secret key set by constructor
 	attr_accessor :secret
-	# Storage of base url/domain set by constructor
+	# @!attribute [String] Storage of base url/domain set by constructor
 	attr_accessor :base_url
-	# Set to true if you wish requests to occur over https rather than http
+	# @!attribute [Boolean] Set to true if you wish requests to occur over https rather than http
 	attr_accessor :secure
 
-	# @param::
-	# * 'api_key' : api key assigned to your api user
-	# * 'secret' : secret key assigned to your api user
-	# * 'base_url' : the domain that your api user is on.  Defaults to 'vcloud.volarvideo.com'
+	# @param [String] api_key : api key assigned to your api user
+	# @param [String] secret : secret key assigned to your api user
+	# @param [String] base_url : the domain that your api user is on.  Defaults to 'vcloud.volarvideo.com'
 	def initialize(api_key, secret, base_url = 'vcloud.volarvideo.com')
 		@api_key = api_key
 		@secret = secret
@@ -39,9 +38,9 @@ class Volar
 	end
 
 	# gets list of sites
-	# @param::
-	# * hash params
-	#   * optional::
+	# 
+	# @param [Hash] params
+	#   * optional
 	#     * 'list' : type of array.  Allowed values are 'all', 'archived', 'scheduled' or 'upcoming', 'upcoming_or_streaming', 'streaming' or 'live'
 	#     * 'page': current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of broadcasts to display per page
@@ -52,18 +51,17 @@ class Volar
 	#     * 'title' : title of site.  useful for searches, as this accepts incomplete titles and returns all matches.
 	#     * 'sort_by' : data field to use to sort.  allowed fields are date, status, id, title, description
 	#     * 'sort_dir' : direction of sort.  allowed values are 'asc' (ascending) and 'desc' (descending)
-	# @return false on failure, dhash on success.  if failed, Volar.error can be used to get last error string
+	# @return false on failure, hash on success.  if failed, Volar.error can be used to get last error string
 	def sites(params = {})
 		results = request(route = 'api/client/info', method = 'GET', parameters = params)
 		return results
 	end
 
 	# gets list of broadcasts
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' OR 'sites'	slug of site to filter to. if passing 'sites', users can include a comma-delimited list of sites.  results will reflect all broadcasts in the listed sites.
-	#   * optional::
+	#   * _optional_
 	#     * 'list' : type of array.  allowed values are 'all', 'archived', 'scheduled' or 'upcoming', 'upcoming_or_streaming', 'streaming' or 'live'
 	#     * 'page' : current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of broadcasts to display per page
@@ -72,16 +70,18 @@ class Volar
 	#     * 'id' : id of broadcast - useful if you only want to get details of a single broadcast
 	#     * 'title' : title of broadcast.  useful for searches, as this accepts incomplete titles and returns all matches.
 	#     * 'template_data' : hash.  search broadcast template data.  should be in the form:
-	# 			{
-	# 				'field title' : 'field value',
-	# 				'field title' : 'field value',
-	# 				....
-	# 			}
+	#        ```
+	#        {
+	#          'field title' : 'field value',
+	#          'field title' : 'field value',
+	#          ....
+	#        }
+	#        ```
 	#     * 'autoplay' : true or false.  defaults to false.  used in embed code to prevent player from immediately playing
 	#     * 'embed_width' : width (in pixels) that embed should be.  defaults to 640
 	#     * 'sort_by' : data field to use to sort.  allowed fields are date, status, id, title, description
 	#     * 'sort_dir' : direction of sort.  allowed values are 'asc' (ascending) and 'desc' (descending)
-	# @return:: false on failure, hash on success.  if failed, Volar.error can be used to get last error string
+	# @return false on failure, hash on success.  if failed, Volar.error can be used to get last error string
 	def broadcasts(params = {})
 		if params.has_key?('site') == false and params.has_key?('sites') == false
 			@error = '"site" or "sites" parameter is required.'
@@ -92,31 +92,31 @@ class Volar
 	end 
 
 	# create a new broadcast
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'title' : title of the new broadcast
 	#     * 'contact_name' : contact name of person we should contact if we detect problems with this broadcast
 	#     * 'contact_phone' : phone we should use to contact contact_name person
 	#     * 'contact_sms' : sms number we should use to send text messages to contact_name person
 	#     * 'contact_email' : email address we should use to send emails to contact_name person
 	#       * note that contact_phone can be omitted if contact_sms is supplied, and vice-versa
-	#   * optional::
+	#   * _optional_
 	#     * 'description' : HTML formatted description of the broadcast.
 	#     * 'status' : currently only supports 'scheduled' & 'upcoming'
 	#     * 'timezone' : timezone of given date.  only timezones listed on http://php.net/manual/en/timezones.php are supported.  defaults to UTC
 	#     * 'date' : date (string) of broadcast event.  will be converted to UTC if the given timezone is given.  note that if the system cannot read the date, or if it isn't supplied, it will default it to the current date & time.
 	#     * 'section_id' : id of the section that this broadcast should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a 'General' section
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		...
-	# 		if 'success' == True:
-	# 			'broadcast' : hash containing broadcast information,
-	# 				including id of new broadcast
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [hash]
+	#  ```
+	#  {
+	#    'success' : True or False depending on success
+	#    ...
+	#    if 'success' == True:
+	#      'broadcast' : hash containing broadcast information, including id of new broadcast
+	#    else:
+	#      'errors' : list of errors to give reason(s) for failure
+	#  }
+	#  ```
 	def broadcast_create(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -131,11 +131,10 @@ class Volar
 
 
 	# update existing broadcast
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'id' : id of broadcast you wish to update
-	#   * optional::
+	#   * _optional_
 	#     * 'title' : title of the new broadcast.  if supplied, CANNOT be blank
 	#     * 'description' : HTML formatted description of the broadcast.
 	#     * 'status' : currently only supports 'scheduled' & 'upcoming'
@@ -147,7 +146,8 @@ class Volar
 	#     * 'contact_sms' : sms number we should use to send text messages to contact_name person
 	#     * 'contact_email' : email address we should use to send emails to contact_name person
 	#       * note that contact_phone can be omitted if contact_sms is supplied, and vice-versa
-	# @return:: hash
+	# @return [Hash]
+	#  ```
 	# 	{
 	# 		'success' : True or False depending on success
 	# 		if 'success' == True:
@@ -156,6 +156,7 @@ class Volar
 	# 		else:
 	# 			'errors' : list of errors to give reason(s) for failure
 	# 	}
+	#  ```
 	def broadcast_update(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -169,7 +170,11 @@ class Volar
 	end
 
 	# delete a broadcast
-	# the only parameter (aside from 'site') that this function takes is 'id'
+	# @param [Hash] params
+	#   * _required_
+	#     * 'site' : slug of site that broadcast is attached to
+	#     * 'id' : id of broadcast you wish to delete
+	# @return [Hash] { 'success' : True }
 	def broadcast_delete(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -183,11 +188,10 @@ class Volar
 	end
 	
 	# assign a broadcast to a playlist
-	# @params:: 
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of broadcast
 	#   * 'playlist_id' : id of playlist
-	# @return:: hash { 'success' : True }
+	# @return [Hash] { 'success' : True }
 	def broadcast_assign_playlist(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -199,11 +203,10 @@ class Volar
 	end
 
 	# remove a broadcast from a playlist
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of broadcast
 	#   * 'playlist_id' : id of playlist
-	# @return:: hash { 'success' : True }
+	# @return [Hash] { 'success' : True }
 	def broadcast_remove_playlist(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -215,17 +218,19 @@ class Volar
 	end	
 
 	# uploads an image file as the poster for a broadcast.
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of broadcast
-	# * string file_path (should include file name)
+	#   * 'site' : slug of site that broadcast is attached to
+	# @param [String] file_path (should include file name)
 	#   * if supplied, this file is uploaded to the server and attached to the broadcast as an image 
-	# @return hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		if 'success' == False:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     if 'success' == False:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def broadcast_poster(params = {}, file_path = '')
 		site = params.fetch('site', nil)
 		if site == nil
@@ -247,22 +252,22 @@ class Volar
 	end 
 
 	# archives a broadcast.
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of broadcast
 	#   * 'site' : slug of site that broadcast is attached to.
-	# * string file_path (should include file name)
+	# @param [String] file_path (should include file name)
 	#   * if supplied, this file is uploaded to the server and attached to the broadcast
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		'broadcast' : hash describing broadcast that was modified.
-	# 		if 'success' == True:
-	# 			'fileinfo' : hash containing information about the
-	# 			uploaded file (if there was a file uploaded)
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     'broadcast' : hash describing broadcast that was modified.
+	#     if 'success' == True:
+	#       'fileinfo' : hash containing information about the uploaded file (if there was a file uploaded)
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def broadcast_archive(params = {}, file_path = '')
 		site = params.fetch('site', nil)
 		if site == nil
@@ -284,11 +289,10 @@ class Volar
 	end 
 
 	# gets list of videoclips
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' OR 'sites'	slug of site to filter to.  if passing 'sites', users can include a comma-delimited list of sites.  results will reflect all videoclips in the listed sites.
-	#   * optional::
+	#   * _optional_
 	#     * 'list' : type of list.  allowed values are 'all', 'active'
 	#     * 'page' : current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of videoclips to display per page
@@ -300,7 +304,7 @@ class Volar
 	#     * 'embed_width' : width (in pixels) that embed should be.  defaults to 640
 	#     * 'sort_by' : data field to use to sort.  allowed fields are date, status, id, title, description
 	#     * 'sort_dir' : direction of sort.  allowed values are 'asc' (ascending) and 'desc' (descending)
-	# @return:: false on failure, hash on success.  if failed, Volar.error can be used to get last error string
+	# @return false on failure, hash on success.  if failed, Volar.error can be used to get last error string
 	def videoclips(params = {})
 		if params.has_key?('site') == false and params.has_key?('sites') == false
 			@error = '"site" or "sites" parameter is required.'
@@ -311,24 +315,24 @@ class Volar
 	end 
 
 	# create a new videoclip
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site':	slug of site to attach videoclip to
 	#     * 'title' : title of the new videoclip
-	#   * optional::
+	#   * _optional_
 	#     * 'description' : HTML formatted description of the videoclip.
 	#     * 'section_id' : id of the section that this videoclip should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a 'General' section
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		...
-	# 		if 'success' == True:
-	# 			'clip' : hash containing videoclip information,
-	# 				including id of new videoclip
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     ...
+	#     if 'success' == True:
+	#       'clip' : hash containing videoclip information, including id of new videoclip
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def videoclip_create(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -343,24 +347,24 @@ class Volar
 
 
 	# update existing videoclip
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site':	slug of site clip is associated with
 	#     * 'id' : id of videoclip you wish to update
-	#   * optional::
+	#   * _optional_
 	#     * 'title' : title of the new videoclip.  if supplied, CANNOT be blank
 	#     * 'description' : HTML formatted description of the videoclip.
 	#     * 'section_id' : id of the section that this videoclip should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a 'General' section
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		if 'success' == True:
-	# 			'clip' : hash containing videoclip information,
-	# 				including id of new videoclip
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     if 'success' == True:
+	#       'clip' : hash containing videoclip information, including id of new videoclip
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def videoclip_update(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -374,7 +378,11 @@ class Volar
 	end
 
 	# delete a videoclip
-	# the only parameter (aside from 'site') that this function takes is 'id'
+	# @param [Hash] params
+	#   * _required_
+	#     * 'site' : slug of site that videoclip is attached to
+	#     * 'id' : id of videoclip you wish to delete
+	# @return [Hash] { 'success' : True }
 	def videoclip_delete(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -389,10 +397,10 @@ class Volar
 	
 	# assign a videoclip to a playlist
 	# 
-	# @params:: hash params
-	# * 'id' : id of videoclip
-	# * 'playlist_id' : id of playlist
-	# @return:: hash { 'success' : True }
+	# @param [Hash] params
+	#   * 'id' : id of videoclip
+	#   * 'playlist_id' : id of playlist
+	# @return [Hash] { 'success' : True }
 	def videoclip_assign_playlist(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -405,11 +413,10 @@ class Volar
 
 	# remove a videoclip from a playlist
 	# 
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of videoclip
 	#   * 'playlist_id' : id of playlist
-	# @return:: hash { 'success' : True }
+	# @return [Hash] { 'success' : True }
 	def videoclip_remove_playlist(params = {})		
 		site = params.fetch('site', nil)
 		if site == nil
@@ -422,17 +429,18 @@ class Volar
 
 	# uploads an image file as the poster for a videoclip.
 	# 
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of videoclip
-	# * string file_path (should include file name)
+	# @param [String] file_path (should include file name)
 	#   * if supplied, this file is uploaded to the server and attached to the videoclip as an image 
 	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		if 'success' == False:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     if 'success' == False:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def videoclip_poster(params = {}, file_path = '')
 		site = params.fetch('site', nil)
 		if site == nil
@@ -455,22 +463,22 @@ class Volar
 
 	# archives a videoclip.
 	#
-	# @params::
-	# * hash params
+	# @param [Hash] params
 	#   * 'id' : id of videoclip
 	#   * 'site' : slug of site that videoclip is attached to.
-	# * string file_path (should include file name)
+	# @param [String] file_path (should include file name)
 	#   * if supplied, this file is uploaded to the server and attached to the videoclip
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		'clip' : hash describing videoclip that was modified.
-	# 		if 'success' == True:
-	# 			'fileinfo' : hash containing information about the
-	# 			uploaded file (if there was a file uploaded)
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     'clip' : hash describing videoclip that was modified.
+	#     if 'success' == True:
+	#       'fileinfo' : hash containing information about the uploaded file (if there was a file uploaded)
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def videoclip_archive(params = {}, file_path = '')
 		site = params.fetch('site', nil)
 		if site == nil
@@ -493,11 +501,10 @@ class Volar
 
 	# gets list of meta-data templates
 	# 
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' : slug of site to filter to.  note that 'sites' is not supported
-	#   * optional::
+	#   * _optional_
 	#     * 'page' : current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of broadcasts to display per page
 	#     * 'broadcast_id' : id of broadcast you wish to limit list to.
@@ -506,7 +513,7 @@ class Volar
 	#     * 'title' : title of template.  useful for searches, as this accepts incomplete titles and returns all matches.
 	#     * 'sort_by' : data field to use to sort.  allowed fields are id, title, description, date_modified. defaults to title
 	#     * 'sort_dir' : direction of sort.  allowed values are 'asc' (ascending) and 'desc' (descending). defaults to asc
-	# @return:: false on failure, hash on success.  if failed, Volar.error can be used to get last error string
+	# @return false on failure, hash on success.  if failed, Volar.error can be used to get last error string
 	def templates(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -519,42 +526,46 @@ class Volar
 
 	# create a new meta-data template
 	# 
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' : slug of site to filter to.  note that 'sites' is not supported
 	#     * 'title' : title of the broadcast
 	#     * 'data' : list of data fields (hashes) assigned to template. should be in format:
-	# 			[
-	# 				{
-	# 					"title" : (string) "field title",
-	# 					"type" : (string) "type of field",
-	# 					"options" : {...} or [...]	//only include if type supports
-	# 				},
-	# 				...
-	# 			]
-	#       supported types are:
-	#       * 'single-line' - single line of text
-	#       * 'multi-line' - multiple-lines of text, option 'rows' (not required) is number of lines html should display as. ex: "options": {'rows': 4}
-	#       * 'checkbox' - togglable field.  value will be the title of the field.  no options.
-	#       * 'checkbox-list' - list of togglable fields.  values should be included in 'options' list. ex: "options" : ["option 1", "option 2", ...]
-	#       * 'radio' - list of selectable fields, although only 1 can be selected at at time.  values should be included in 'options' list. ex: "options" : ["option 1", "option 2", ...]
-	#       * 'dropdown' - same as radio, but displayed as a dropdown. values should be included in 'options' array. ex: "options" : ["option 1", "option 2", ...]
-	#       * 'country' - dropdown containing country names.  if you wish to specify default value, include "default_select".  this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character country abbreviation.
-	#       * 'state' - dropdown containing united states state names.  If you wish to specify default value, include "default_select". this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character state abbreviation.
-	#   * optional::
+	# 
+	#         ```
+	#         [
+	#           {
+	#             "title" : (string) "field title",
+	#             "type" : (string) "type of field",
+	#             "options" : {...} or [...]	//only include if type supports
+	#           },
+	#           ...
+	#         ]
+	#         ```
+	# 
+	#         supported types are:
+	#         * 'single-line' - single line of text
+	#         * 'multi-line' - multiple-lines of text, option 'rows' (not required) is number of lines html should display as. ex: "options": {'rows': 4}
+	#         * 'checkbox' - togglable field.  value will be the title of the field.  no options.
+	#         * 'checkbox-list' - list of togglable fields.  values should be included in 'options' list. ex: "options" : ["option 1", "option 2", ...]
+	#         * 'radio' - list of selectable fields, although only 1 can be selected at at time.  values should be included in 'options' list. ex: "options" : ["option 1", "option 2", ...]
+	#         * 'dropdown' - same as radio, but displayed as a dropdown. values should be included in 'options' array. ex: "options" : ["option 1", "option 2", ...]
+	#         * 'country' - dropdown containing country names.  if you wish to specify default value, include "default_select".  this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character country abbreviation.
+	#         * 'state' - dropdown containing united states state names.  If you wish to specify default value, include "default_select". this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character state abbreviation.
+	#   * _optional_
 	#     * 'description' : text used to describe the template.
 	#     * 'section_id' : id of section to assign broadcast to. will default to 'General'.
-	# @return hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		...
-	# 		if 'success' == True:
-	# 			'template' : hash containing template information,
-	# 				including id of new template
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#  ```
+	#  {
+	#    'success' : True or False depending on success
+	#    ...
+	#    if 'success' == True:
+	#      'template' : hash containing template information, including id of new template
+	#    else:
+	#      'errors' : list of errors to give reason(s) for failure
+	#  }
+	#  ```
 	def template_create(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -567,28 +578,28 @@ class Volar
 		return results
 	end 
 
-	# create a new meta-data template
+	# update an existing meta-data template
 	# 
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' : slug of site to filter to.  note that 'sites' is not supported
 	#     * 'id' : numeric id of template that you are intending to update.
-	#   * optional::
+	#   * _optional_
 	#     * 'title' : title of the broadcast
 	#     * 'data' : list of data fields assigned to template.  see template_create() for format
 	#     * 'description' : text used to describe the template.
 	#     * 'section_id' : id of section to assign broadcast to. will default to 'General'.
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		...
-	# 		if 'success' == True:
-	# 			'template' : hash containing template information,
-	# 				including id of new template
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     ...
+	#     if 'success' == True:
+	#       'template' : hash containing template information, including id of new template
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	# Note that if you do not have direct access to update a template (it may be domain or client level), a new template will be created and returned to you that does have the permissions set for you to modify.  keep this in mind when updating templates.
 	def template_update(params = {})
 		site = params.fetch('site', nil)
@@ -618,11 +629,10 @@ class Volar
 
 	# gets list of sections
 	# 
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' OR 'sites'	slug of site to filter to. if passing 'sites', users can include a comma-delimited list of sites.  results will reflect all sections in the listed sites.
-	#   * optional::
+	#   * _optional_
 	#     * 'page' : current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of broadcasts to display per page
 	#     * 'broadcast_id' : id of broadcast you wish to limit list to. will always return 1
@@ -631,7 +641,7 @@ class Volar
 	#     * 'title' : title of section.  useful for searches, as this accepts incomplete titles and returns all matches.
 	#     * 'sort_by' : data field to use to sort.  allowed fields are id, title
 	#     * 'sort_dir' : direction of sort.  allowed values are 'asc' (ascending) and 'desc' (descending)
-	# @return:: false on failure, hash on success.  if failed, Volar.error can be used to get last error string
+	# @return false on failure, hash on success.  if failed, Volar.error can be used to get last error string
 	def sections(params = {})
 		if params.has_key?('site') == false and params.has_key?('sites') == false
 			@error = '"site" or "sites" parameter is required.'
@@ -643,11 +653,10 @@ class Volar
 
 	# gets list of playlists
 	#
-	# @param::
-	# * hash params
-	#   * required::
+	# @param [Hash] params
+	#   * _required_
 	#     * 'site' OR 'sites'	slug of site to filter to.  if passing 'sites', users can include a comma-delimited list of sites.  results will reflect all playlists in the listed sites.
-	#   * optional::
+	#   * _optional_
 	#     * 'page' : current page of listings.  pages begin at '1'
 	#     * 'per_page' : number of broadcasts to display per page
 	#     * 'broadcast_id' : id of broadcast you wish to limit list to.
@@ -669,24 +678,24 @@ class Volar
 
 	# create a new playlist
 	# 
-	# @param::
-	# * hash params
+	# @param [Hash] params
 	#   * required::
 	#     * 'title' : title of the new playlist
 	#   * optional::
 	#     * 'description' : HTML formatted description of the playlist.
 	#     * 'available' : flag whether or not the playlist is available for public viewing.  accepts 'yes','available','active', & '1' (to flag availability) and 'no','unavailable', 'inactive', & '0' (to flag non-availability)
 	#     * 'section_id' : id of the section that this playlist should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a 'General' section
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		...
-	# 		if 'success' == True:
-	# 			'playlist' : hash containing playlist information,
-	# 				including id of new playlist
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     ...
+	#     if 'success' == True:
+	#       'playlist' : hash containing playlist information, including id of new playlist
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def playlist_create(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
@@ -701,24 +710,24 @@ class Volar
 	
 	# update existing playlist
 	# 
-	# @param::
-	# * hash params
-	#   * required -
+	# @param [Hash] params
+	#   * _required_
 	#     * 'id' : id of playlist you wish to update
-	#   * optional -
+	#   * _optional_
 	#     * 'title' : title of the new playlist.  if supplied, CANNOT be blank
 	#     * 'description' : HTML formatted description of the playlist.
 	#     * 'available' : flag whether or not the playlist is available for public viewing.  accepts 'yes','available','active', & '1' (to flag availability) and 'no','unavailable', 'inactive', & '0' (to flag non-availability)
 	#     * 'section_id' : id of the section that this playlist should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a 'General' section
-	# @return:: hash
-	# 	{
-	# 		'success' : True or False depending on success
-	# 		if 'success' == True:
-	# 			'playlist' : hash containing playlist information,
-	# 				including id of new playlist
-	# 		else:
-	# 			'errors' : list of errors to give reason(s) for failure
-	# 	}
+	# @return [Hash]
+	#   ```
+	#   {
+	#     'success' : True or False depending on success
+	#     if 'success' == True:
+	#       'playlist' : hash containing playlist information, including id of playlist
+	#     else:
+	#       'errors' : list of errors to give reason(s) for failure
+	#   }
+	#   ```
 	def playlist_update(params = {})
 		site = params.fetch('site', nil)
 		if site == nil
