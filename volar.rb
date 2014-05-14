@@ -291,10 +291,14 @@ class Volar
 
 		if file_path == ''
 			result = self.request(route = 'api/client/broadcast/poster', method = 'GET', parameters = params)
-		else
-			post = {'api_poster' => File.new(file_path, 'rb')}
-		end 
-			result = self.request(route = 'api/client/broadcast/poster', method = 'POST', parameters = params, post_body = post)
+		else 
+			fileInfo = self.upload_file(file_path)
+			if fileInfo == false
+				return false
+			end
+			params = params.merge(fileInfo)
+			result = self.request(route = 'api/client/broadcast/poster', method = 'GET', parameters = params)
+		end
 		return result
 	end 
 
@@ -536,10 +540,14 @@ class Volar
 
 		if file_path == ''
 			result = self.request(route = 'api/client/videoclip/poster', method = 'GET', parameters = params)
-		else
-			post = {'api_poster' => File.new(file_path, 'rb')}
-		end 
-			result = self.request(route = 'api/client/videoclip/poster', method = 'POST', parameters = params, post_body = post)
+		else 
+			fileInfo = self.upload_file(file_path)
+			if fileInfo == false
+				return false
+			end
+			params = params.merge(fileInfo)
+			result = self.request(route = 'api/client/videoclip/poster', method = 'GET', parameters = params)
+		end
 		return result
 	end 
 
