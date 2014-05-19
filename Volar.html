@@ -1,0 +1,4318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Volar
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Volar.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (V)</a> &raquo;
+    
+    
+    <span class="title">Volar</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Volar
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Volar</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">cms-client-sdk-ruby/volar.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>SDK for interfacing with the Volar cms.  Allows pulling of lists as well
+as manipulation of records.  Requires an api user to be set up.  All
+requests (with the exception of the Volar.sites call) requires the &#39;site&#39;
+parameter, and &#39;site&#39; much match the slug value of a site that the given
+api user has access to.  Programmers can use the Volar.sites call to get
+this information.
+Depends on the Rest-Client and JSON gems:
+* <a href="http://rubygems.org/gems/rest-client">http://rubygems.org/gems/rest-client</a>
+* <a href="http://rubygems.org/gems/json">http://rubygems.org/gems/json</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Access+this+attribute+to+see+the+last+error+that+occurred-instance_method" title="#Access this attribute to see the last error that occurred (instance method)">- (Object) <strong>Access this attribute to see the last error that occurred</strong>(thisattributetoseethelasterrorthatoccurred) </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#api_key-instance_method" title="#api_key (instance method)">- (Object) <strong>api_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute api_key.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#base_url-instance_method" title="#base_url (instance method)">- (Object) <strong>base_url</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute base_url.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#error-instance_method" title="#error (instance method)">- (Object) <strong>error</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute error.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#secret-instance_method" title="#secret (instance method)">- (Object) <strong>secret</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute secret.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#secure-instance_method" title="#secure (instance method)">- (Object) <strong>secure</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute secure.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Storage+of+api+key+set+by+constructor-instance_method" title="#Storage of api key set by constructor (instance method)">- (Object) <strong>Storage of api key set by constructor</strong>(ofapikeysetbyconstructor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Storage+of+base+url%2Fdomain+set+by+constructor-instance_method" title="#Storage of base url/domain set by constructor (instance method)">- (Object) <strong>Storage of base url/domain set by constructor</strong>(ofbaseurl/domainsetbyconstructor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Storage+of+secret+key+set+by+constructor-instance_method" title="#Storage of secret key set by constructor (instance method)">- (Object) <strong>Storage of secret key set by constructor</strong>(ofsecretkeysetbyconstructor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_archive-instance_method" title="#broadcast_archive (instance method)">- (Hash) <strong>broadcast_archive</strong>(params = {}, file_path = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>archives a broadcast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_assign_playlist-instance_method" title="#broadcast_assign_playlist (instance method)">- (Hash) <strong>broadcast_assign_playlist</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>assign a broadcast to a playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_create-instance_method" title="#broadcast_create (instance method)">- (hash) <strong>broadcast_create</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>create a new broadcast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_delete-instance_method" title="#broadcast_delete (instance method)">- (Hash) <strong>broadcast_delete</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>delete a broadcast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_poster-instance_method" title="#broadcast_poster (instance method)">- (Hash) <strong>broadcast_poster</strong>(params = {}, file_path = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>uploads an image file as the poster for a broadcast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_remove_playlist-instance_method" title="#broadcast_remove_playlist (instance method)">- (Hash) <strong>broadcast_remove_playlist</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>remove a broadcast from a playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcast_update-instance_method" title="#broadcast_update (instance method)">- (Hash) <strong>broadcast_update</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>update existing broadcast.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#broadcasts-instance_method" title="#broadcasts (instance method)">- (Object) <strong>broadcasts</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of broadcasts.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Volar) <strong>initialize</strong>(api_key, secret, base_url = 'vcloud.volarvideo.com') </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of Volar.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#playlist_create-instance_method" title="#playlist_create (instance method)">- (Hash) <strong>playlist_create</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>create a new playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#playlist_delete-instance_method" title="#playlist_delete (instance method)">- (Object) <strong>playlist_delete</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>delete a playlist the only parameter (aside from &#39;site&#39;) that this function takes is &#39;id&#39;.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#playlist_update-instance_method" title="#playlist_update (instance method)">- (Hash) <strong>playlist_update</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>update existing playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#playlists-instance_method" title="#playlists (instance method)">- (Object) <strong>playlists</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of playlists.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sections-instance_method" title="#sections (instance method)">- (Object) <strong>sections</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of sections.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Set+to+true+if+you+wish+requests+to+occur+over+https+rather+than+http%3D-instance_method" title="#Set to true if you wish requests to occur over https rather than http= (instance method)">- (Object) <strong>Set to true if you wish requests to occur over https rather than http=</strong>(totrue) </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sites-instance_method" title="#sites (instance method)">- (Object) <strong>sites</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of sites.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#template_create-instance_method" title="#template_create (instance method)">- (Hash) <strong>template_create</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>create a new meta-data template.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#template_delete-instance_method" title="#template_delete (instance method)">- (Object) <strong>template_delete</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>delete a meta-data template the only parameter (aside from &#39;site&#39;) that this function takes is &#39;id&#39;.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#template_update-instance_method" title="#template_update (instance method)">- (Hash) <strong>template_update</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>update an existing meta-data template.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#templates-instance_method" title="#templates (instance method)">- (Object) <strong>templates</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of meta-data templates.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_archive-instance_method" title="#videoclip_archive (instance method)">- (Hash) <strong>videoclip_archive</strong>(params = {}, file_path = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>archives a videoclip.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_assign_playlist-instance_method" title="#videoclip_assign_playlist (instance method)">- (Hash) <strong>videoclip_assign_playlist</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>assign a videoclip to a playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_create-instance_method" title="#videoclip_create (instance method)">- (Hash) <strong>videoclip_create</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>create a new videoclip.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_delete-instance_method" title="#videoclip_delete (instance method)">- (Hash) <strong>videoclip_delete</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>delete a videoclip.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_poster-instance_method" title="#videoclip_poster (instance method)">- (Object) <strong>videoclip_poster</strong>(params = {}, file_path = '') </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>uploads an image file as the poster for a videoclip.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_remove_playlist-instance_method" title="#videoclip_remove_playlist (instance method)">- (Hash) <strong>videoclip_remove_playlist</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>remove a videoclip from a playlist.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclip_update-instance_method" title="#videoclip_update (instance method)">- (Hash) <strong>videoclip_update</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>update existing videoclip.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#videoclips-instance_method" title="#videoclips (instance method)">- (Object) <strong>videoclips</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>gets list of videoclips.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Volar (class)">Volar</a></span></tt>) <strong>initialize</strong>(api_key, secret, base_url = 'vcloud.volarvideo.com') 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of Volar</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>api_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>: api key assigned to your api user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>secret</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>: secret key assigned to your api user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>base_url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>'vcloud.volarvideo.com'</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>: the domain that your api user is on.  Defaults to &#39;vcloud.volarvideo.com&#39;</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_api_key'>api_key</span><span class='comma'>,</span> <span class='id identifier rubyid_secret'>secret</span><span class='comma'>,</span> <span class='id identifier rubyid_base_url'>base_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>vcloud.volarvideo.com</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='ivar'>@api_key</span> <span class='op'>=</span> <span class='id identifier rubyid_api_key'>api_key</span>
+	<span class='ivar'>@secret</span> <span class='op'>=</span> <span class='id identifier rubyid_secret'>secret</span>
+	<span class='ivar'>@base_url</span> <span class='op'>=</span> <span class='id identifier rubyid_base_url'>base_url</span> 
+	<span class='ivar'>@secure</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='ivar'>@error</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="Access this attribute to see the last error that occurred-instance_method">
+  
+    - (<tt>Object</tt>) <strong>Access this attribute to see the last error that occurred</strong>(thisattributetoseethelasterrorthatoccurred)  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 19</span>
+
+<span class='id identifier rubyid_attr_reader'>attr_reader</span> <span class='symbol'>:error</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="api_key=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="api_key-instance_method">
+  
+    - (<tt>Object</tt>) <strong>api_key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute api_key</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_api_key'>api_key</span>
+  <span class='ivar'>@api_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="base_url=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="base_url-instance_method">
+  
+    - (<tt>Object</tt>) <strong>base_url</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute base_url</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_base_url'>base_url</span>
+  <span class='ivar'>@base_url</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="error-instance_method">
+  
+    - (<tt>Object</tt>) <strong>error</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute error</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 19</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_error'>error</span>
+  <span class='ivar'>@error</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="secret=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="secret-instance_method">
+  
+    - (<tt>Object</tt>) <strong>secret</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute secret</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_secret'>secret</span>
+  <span class='ivar'>@secret</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="secure=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="secure-instance_method">
+  
+    - (<tt>Object</tt>) <strong>secure</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute secure</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_secure'>secure</span>
+  <span class='ivar'>@secure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="Storage of api key set by constructor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>Storage of api key set by constructor</strong>(ofapikeysetbyconstructor)  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 21</span>
+
+<span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:api_key</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="Storage of base url/domain set by constructor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>Storage of base url/domain set by constructor</strong>(ofbaseurl/domainsetbyconstructor)  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 25</span>
+
+<span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:base_url</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="Storage of secret key set by constructor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>Storage of secret key set by constructor</strong>(ofsecretkeysetbyconstructor)  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 23</span>
+
+<span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:secret</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="broadcast_archive-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_archive</strong>(params = {}, file_path = '') 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>archives a broadcast.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of broadcast</li>
+<li>&#39;site&#39; : slug of site that broadcast is attached to.</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>(should include file name)
+* if supplied, this file is uploaded to the server and attached to the broadcast</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  'broadcast' : hash describing broadcast that was modified.
+  if 'success' == True:
+    'fileinfo' : hash containing information about the uploaded file (if there was a file uploaded)
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_archive'>broadcast_archive</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/archive</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>else</span> 
+		<span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>=</span> <span class='id identifier rubyid_upload_file'>upload_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>==</span> <span class='kw'>false</span>
+			<span class='kw'>return</span> <span class='kw'>false</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_fileInfo'>fileInfo</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/archive</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_assign_playlist-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_assign_playlist</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>assign a broadcast to a playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of broadcast</li>
+<li>&#39;playlist_id&#39; : id of playlist</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_assign_playlist'>broadcast_assign_playlist</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/assignplaylist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_create-instance_method">
+  
+    - (<tt>hash</tt>) <strong>broadcast_create</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>create a new broadcast</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;title&#39; : title of the new broadcast</li>
+<li>&#39;contact_name&#39; : contact name of person we should contact if we detect problems with this broadcast</li>
+<li>&#39;contact_phone&#39; : phone we should use to contact contact_name person</li>
+<li>&#39;contact_sms&#39; : sms number we should use to send text messages to contact_name person</li>
+<li>&#39;contact_email&#39; : email address we should use to send emails to contact_name person</li>
+<li>note that contact_phone can be omitted if contact_sms is supplied, and vice-versa</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;description&#39; : HTML formatted description of the broadcast.</li>
+<li>&#39;status&#39; : currently only supports &#39;scheduled&#39; &amp; &#39;upcoming&#39;</li>
+<li>&#39;timezone&#39; : timezone of given date.  only timezones listed on <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> are supported.  defaults to UTC</li>
+<li>&#39;date&#39; : date (string) of broadcast event.  will be converted to UTC if the given timezone is given.  note that if the system cannot read the date, or if it isn&#39;t supplied, it will default it to the current date &amp; time.</li>
+<li>&#39;section_id&#39; : id of the section that this broadcast should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  ...
+  if 'success' == True:
+    'broadcast' : hash containing broadcast information, including id of new broadcast
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_create'>broadcast_create</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/create</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_delete-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_delete</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>delete a broadcast</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; : slug of site that broadcast is attached to</li>
+<li>&#39;id&#39; : id of broadcast you wish to delete</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_delete'>broadcast_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/delete</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_poster-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_poster</strong>(params = {}, file_path = '') 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>uploads an image file as the poster for a broadcast.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of broadcast</li>
+<li>&#39;site&#39; : slug of site that broadcast is attached to</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>(should include file name)
+* if supplied, this file is uploaded to the server and attached to the broadcast as an image</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  if 'success' == False:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_poster'>broadcast_poster</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/poster</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>else</span> 
+		<span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>=</span> <span class='id identifier rubyid_upload_file'>upload_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>==</span> <span class='kw'>false</span>
+			<span class='kw'>return</span> <span class='kw'>false</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_fileInfo'>fileInfo</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/poster</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_remove_playlist-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_remove_playlist</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>remove a broadcast from a playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of broadcast</li>
+<li>&#39;playlist_id&#39; : id of playlist</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213
+214
+215
+216
+217
+218</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_remove_playlist'>broadcast_remove_playlist</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/removeplaylist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcast_update-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>broadcast_update</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>update existing broadcast</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;id&#39; : id of broadcast you wish to update</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;title&#39; : title of the new broadcast.  if supplied, CANNOT be blank</li>
+<li>&#39;description&#39; : HTML formatted description of the broadcast.</li>
+<li>&#39;status&#39; : currently only supports &#39;scheduled&#39; &amp; &#39;upcoming&#39;</li>
+<li>&#39;timezone&#39; : timezone of given date.  only timezones listed on <a href="http://php.net/manual/en/timezones.php">http://php.net/manual/en/timezones.php</a> are supported.  defaults to UTC</li>
+<li>&#39;date&#39; : date (string) of broadcast event.  will be converted to UTC if the given timezone is given.  note that if the system cannot read the date, or if it isn&#39;t supplied, it will default it to the current date &amp; time.</li>
+<li>&#39;section_id&#39; : id of the section that this broadcast should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+<li>&#39;contact_name&#39; : contact name of person we should contact if we detect problems with this broadcast</li>
+<li>&#39;contact_phone&#39; : phone we should use to contact contact_name person</li>
+<li>&#39;contact_sms&#39; : sms number we should use to send text messages to contact_name person</li>
+<li>&#39;contact_email&#39; : email address we should use to send emails to contact_name person</li>
+<li>note that contact_phone can be omitted if contact_sms is supplied, and vice-versa</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+    'success' : True or False depending on success
+    if 'success' == True:
+        'broadcast' : hash containing broadcast information,
+            including id of new broadcast
+    else:
+        'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcast_update'>broadcast_update</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast/update</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="broadcasts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>broadcasts</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of broadcasts</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; OR &#39;sites&#39;   slug of site to filter to. if passing &#39;sites&#39;, users can include a comma-delimited list of sites.  results will reflect all broadcasts in the listed sites.</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;list&#39; : type of array.  allowed values are &#39;all&#39;, &#39;archived&#39;, &#39;scheduled&#39; or &#39;upcoming&#39;, &#39;upcoming_or_streaming&#39;, &#39;streaming&#39; or &#39;live&#39;</li>
+<li>&#39;page&#39; : current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of broadcasts to display per page</li>
+<li>&#39;section_id&#39; : id of section you wish to limit list to</li>
+<li>&#39;playlist_id&#39; : id of playlist you wish to limit list to</li>
+<li>&#39;id&#39; : id of broadcast - useful if you only want to get details of a single broadcast</li>
+<li>&#39;title&#39; : title of broadcast.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;template_data&#39; : hash.  search broadcast template data.  should be in the form:
+<code>
+{
+&#39;field title&#39; : &#39;field value&#39;,
+&#39;field title&#39; : &#39;field value&#39;,
+....
+}
+</code></li>
+<li>&#39;autoplay&#39; : true or false.  defaults to false.  used in embed code to prevent player from immediately playing</li>
+<li>&#39;embed_width&#39; : width (in pixels) that embed should be.  defaults to 640</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are date, status, id, title, description</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending)</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_broadcasts'>broadcasts</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span> <span class='kw'>and</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sites</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;site&quot; or &quot;sites&quot; parameter is required.</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>  
+	<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/broadcast</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="playlist_create-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>playlist_create</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>create a new playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>required::
+
+<ul>
+<li>&#39;title&#39; : title of the new playlist</li>
+</ul></li>
+<li>optional::
+
+<ul>
+<li>&#39;description&#39; : HTML formatted description of the playlist.</li>
+<li>&#39;available&#39; : flag whether or not the playlist is available for public viewing.  accepts &#39;yes&#39;,&#39;available&#39;,&#39;active&#39;, &amp; &#39;1&#39; (to flag availability) and &#39;no&#39;,&#39;unavailable&#39;, &#39;inactive&#39;, &amp; &#39;0&#39; (to flag non-availability)</li>
+<li>&#39;section_id&#39; : id of the section that this playlist should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  ...
+  if 'success' == True:
+    'playlist' : hash containing playlist information, including id of new playlist
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 699</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_playlist_create'>playlist_create</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/playlist/create</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="playlist_delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>playlist_delete</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>delete a playlist
+the only parameter (aside from &#39;site&#39;) that this function takes is &#39;id&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 745</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_playlist_delete'>playlist_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/playlist/delete</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="playlist_update-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>playlist_update</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>update existing playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;id&#39; : id of playlist you wish to update</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;title&#39; : title of the new playlist.  if supplied, CANNOT be blank</li>
+<li>&#39;description&#39; : HTML formatted description of the playlist.</li>
+<li>&#39;available&#39; : flag whether or not the playlist is available for public viewing.  accepts &#39;yes&#39;,&#39;available&#39;,&#39;active&#39;, &amp; &#39;1&#39; (to flag availability) and &#39;no&#39;,&#39;unavailable&#39;, &#39;inactive&#39;, &amp; &#39;0&#39; (to flag non-availability)</li>
+<li>&#39;section_id&#39; : id of the section that this playlist should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  if 'success' == True:
+    'playlist' : hash containing playlist information, including id of playlist
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 731</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_playlist_update'>playlist_update</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/playlist/update</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="playlists-instance_method">
+  
+    - (<tt>Object</tt>) <strong>playlists</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of playlists</p>
+
+<p>@return:: false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; OR &#39;sites&#39;   slug of site to filter to.  if passing &#39;sites&#39;, users can include a comma-delimited list of sites.  results will reflect all playlists in the listed sites.</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;page&#39; : current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of broadcasts to display per page</li>
+<li>&#39;broadcast_id&#39; : id of broadcast you wish to limit list to.</li>
+<li>&#39;video_id&#39; : id of video you wish to limit list to.  note this is not fully supported yet.</li>
+<li>&#39;section_id&#39; : id of section you wish to limit list to</li>
+<li>&#39;id&#39; : id of playlist - useful if you only want to get details of a single playlist</li>
+<li>&#39;title&#39; : title of playlist.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are id, title</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending)</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+670
+671
+672
+673
+674
+675
+676
+677</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 670</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_playlists'>playlists</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span> <span class='kw'>and</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sites</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;site&quot; or &quot;sites&quot; parameter is required.</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>  
+	<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/playlist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sections-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sections</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of sections</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; OR &#39;sites&#39;   slug of site to filter to. if passing &#39;sites&#39;, users can include a comma-delimited list of sites.  results will reflect all sections in the listed sites.</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;page&#39; : current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of broadcasts to display per page</li>
+<li>&#39;broadcast_id&#39; : id of broadcast you wish to limit list to. will always return 1</li>
+<li>&#39;video_id&#39; : id of video you wish to limit list to.  will always return 1.  note this is not fully supported yet.</li>
+<li>&#39;id&#39; : id of section - useful if you only want to get details of a single section</li>
+<li>&#39;title&#39; : title of section.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are id, title</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending)</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+645
+646
+647
+648
+649
+650
+651
+652</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 645</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sections'>sections</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span> <span class='kw'>and</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sites</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;site&quot; or &quot;sites&quot; parameter is required.</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>  
+	<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/section</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="Set to true if you wish requests to occur over https rather than http=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>Set to true if you wish requests to occur over https rather than http=</strong>(totrue) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 27</span>
+
+<span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:secure</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sites-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sites</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of sites</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>optional
+
+<ul>
+<li>&#39;list&#39; : type of array.  Allowed values are &#39;all&#39;, &#39;archived&#39;, &#39;scheduled&#39; or &#39;upcoming&#39;, &#39;upcoming_or_streaming&#39;, &#39;streaming&#39; or &#39;live&#39;</li>
+<li>&#39;page&#39;: current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of broadcasts to display per page</li>
+<li>&#39;section_id&#39; : id of section you wish to limit list to</li>
+<li>&#39;playlist_id&#39; : id of playlist you wish to limit list to</li>
+<li>&#39;id&#39; : id of site - useful if you only want to get details of a single site</li>
+<li>&#39;slug&#39; : slug of site.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;title&#39; : title of site.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are date, status, id, title, description</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending)</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sites'>sites</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/info</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="template_create-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>template_create</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>create a new meta-data template</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><p><em>required</em></p>
+
+<ul>
+<li>&#39;site&#39; : slug of site to filter to.  note that &#39;sites&#39; is not supported</li>
+<li>&#39;title&#39; : title of the broadcast</li>
+<li><p>&#39;data&#39; : list of data fields (hashes) assigned to template. should be in format:</p>
+
+<pre class="code ruby"><code class="ruby">[
+{
+  &quot;title&quot; : (string) &quot;field title&quot;,
+  &quot;type&quot; : (string) &quot;type of field&quot;,
+  &quot;options&quot; : {...} or [...]    //only include if type supports
+},
+...
+]
+</code></pre>
+
+<p>supported types are:</p>
+
+<ul>
+<li>&#39;single-line&#39; - single line of text</li>
+<li>&#39;multi-line&#39; - multiple-lines of text, option &#39;rows&#39; (not required) is number of lines html should display as. ex: &quot;options&quot;: 4</li>
+<li>&#39;checkbox&#39; - togglable field.  value will be the title of the field.  no options.</li>
+<li>&#39;checkbox-list&#39; - list of togglable fields.  values should be included in &#39;options&#39; list. ex: &quot;options&quot; : [&quot;option 1&quot;, &quot;option 2&quot;, ...]</li>
+<li>&#39;radio&#39; - list of selectable fields, although only 1 can be selected at at time.  values should be included in &#39;options&#39; list. ex: &quot;options&quot; : [&quot;option 1&quot;, &quot;option 2&quot;, ...]</li>
+<li>&#39;dropdown&#39; - same as radio, but displayed as a dropdown. values should be included in &#39;options&#39; array. ex: &quot;options&quot; : [&quot;option 1&quot;, &quot;option 2&quot;, ...]</li>
+<li>&#39;country&#39; - dropdown containing country names.  if you wish to specify default value, include &quot;default_select&quot;.  this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character country abbreviation.</li>
+<li>&#39;state&#39; - dropdown containing united states state names.  If you wish to specify default value, include &quot;default_select&quot;. this should not be passed as an option, but as a seperate value attached to the field, and accepts 2-character state abbreviation.</li>
+</ul></li>
+</ul></li>
+<li><p><em>optional</em></p>
+
+<ul>
+<li>&#39;description&#39; : text used to describe the template.</li>
+<li>&#39;section_id&#39; : id of section to assign broadcast to. will default to &#39;General&#39;.</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  ...
+  if 'success' == True:
+    'template' : hash containing template information, including id of new template
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 569</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_template_create'>template_create</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/template/create</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="template_delete-instance_method">
+  
+    - (<tt>Object</tt>) <strong>template_delete</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>delete a meta-data template
+the only parameter (aside from &#39;site&#39;) that this function takes is &#39;id&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 618</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_template_delete'>template_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/template/delete</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="template_update-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>template_update</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>update an existing meta-data template</p>
+
+<p>Note that if you do not have direct access to update a template (it may be domain or client level), a new template will be created and returned to you that does have the permissions set for you to modify.  keep this in mind when updating templates.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; : slug of site to filter to.  note that &#39;sites&#39; is not supported</li>
+<li>&#39;id&#39; : numeric id of template that you are intending to update.</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;title&#39; : title of the broadcast</li>
+<li>&#39;data&#39; : list of data fields assigned to template.  see template_create() for format</li>
+<li>&#39;description&#39; : text used to describe the template.</li>
+<li>&#39;section_id&#39; : id of section to assign broadcast to. will default to &#39;General&#39;.</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  ...
+  if 'success' == True:
+    'template' : hash containing template information, including id of new template
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 604</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_template_update'>template_update</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/template/update</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="templates-instance_method">
+  
+    - (<tt>Object</tt>) <strong>templates</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of meta-data templates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; : slug of site to filter to.  note that &#39;sites&#39; is not supported</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;page&#39; : current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of broadcasts to display per page</li>
+<li>&#39;broadcast_id&#39; : id of broadcast you wish to limit list to.</li>
+<li>&#39;section_id&#39; : id of section you wish to limit list to.</li>
+<li>&#39;id&#39; : id of template - useful if you only want to get details of a single template</li>
+<li>&#39;title&#39; : title of template.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are id, title, description, date_modified. defaults to title</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending). defaults to asc</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+517
+518
+519
+520
+521
+522
+523
+524
+525</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 517</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_templates'>templates</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;site&quot; parameter is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/template</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_archive-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_archive</strong>(params = {}, file_path = '') 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>archives a videoclip.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of videoclip</li>
+<li>&#39;site&#39; : slug of site that videoclip is attached to.</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>(should include file name)
+* if supplied, this file is uploaded to the server and attached to the videoclip</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  'clip' : hash describing videoclip that was modified.
+  if 'success' == True:
+    'fileinfo' : hash containing information about the uploaded file (if there was a file uploaded)
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 482</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_archive'>videoclip_archive</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/archive</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>else</span> 
+		<span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>=</span> <span class='id identifier rubyid_upload_file'>upload_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>==</span> <span class='kw'>false</span>
+			<span class='kw'>return</span> <span class='kw'>false</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_fileInfo'>fileInfo</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/archive</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_assign_playlist-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_assign_playlist</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>assign a videoclip to a playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of videoclip</li>
+<li>&#39;playlist_id&#39; : id of playlist</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+404
+405
+406
+407
+408
+409
+410
+411
+412</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 404</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_assign_playlist'>videoclip_assign_playlist</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/assignplaylist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_create-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_create</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>create a new videoclip</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39;: slug of site to attach videoclip to</li>
+<li>&#39;title&#39; : title of the new videoclip</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;description&#39; : HTML formatted description of the videoclip.</li>
+<li>&#39;section_id&#39; : id of the section that this videoclip should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  ...
+  if 'success' == True:
+    'clip' : hash containing videoclip information, including id of new videoclip
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_create'>videoclip_create</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/create</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_delete-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_delete</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>delete a videoclip</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; : slug of site that videoclip is attached to</li>
+<li>&#39;id&#39; : id of videoclip you wish to delete</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 386</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_delete'>videoclip_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/delete</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_poster-instance_method">
+  
+    - (<tt>Object</tt>) <strong>videoclip_poster</strong>(params = {}, file_path = '') 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>uploads an image file as the poster for a videoclip.</p>
+
+<p>@return:: hash
+  <code>
+  {
+    &#39;success&#39; : True or False depending on success
+    if &#39;success&#39; == False:
+      &#39;errors&#39; : list of errors to give reason(s) for failure
+  }
+</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of videoclip</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>''</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>(should include file name)
+* if supplied, this file is uploaded to the server and attached to the videoclip as an image</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 444</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_poster'>videoclip_poster</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='id identifier rubyid_file_path'>file_path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/poster</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>else</span> 
+		<span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>=</span> <span class='id identifier rubyid_upload_file'>upload_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span>
+		<span class='kw'>if</span> <span class='id identifier rubyid_fileInfo'>fileInfo</span> <span class='op'>==</span> <span class='kw'>false</span>
+			<span class='kw'>return</span> <span class='kw'>false</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_fileInfo'>fileInfo</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/poster</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_remove_playlist-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_remove_playlist</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>remove a videoclip from a playlist</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>&#39;id&#39; : id of videoclip</li>
+<li>&#39;playlist_id&#39; : id of playlist</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>{ &#39;success&#39; : True }</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+420
+421
+422
+423
+424
+425
+426
+427
+428</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 420</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_remove_playlist'>videoclip_remove_playlist</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>		
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/removeplaylist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclip_update-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>videoclip_update</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>update existing videoclip</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39;: slug of site clip is associated with</li>
+<li>&#39;id&#39; : id of videoclip you wish to update</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;title&#39; : title of the new videoclip.  if supplied, CANNOT be blank</li>
+<li>&#39;description&#39; : HTML formatted description of the videoclip.</li>
+<li>&#39;section_id&#39; : id of the section that this videoclip should be assigned.  the Volar.sections() call can give you a list of available sections.  Defaults to a &#39;General&#39; section</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><pre class="code ruby"><code class="ruby">{
+  'success' : True or False depending on success
+  if 'success' == True:
+    'clip' : hash containing videoclip information, including id of new videoclip
+  else:
+    'errors' : list of errors to give reason(s) for failure
+}
+</code></pre>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 368</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclip_update'>videoclip_update</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_site'>site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span> <span class='op'>==</span> <span class='kw'>nil</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site is required</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip/update</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_site'>site</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="videoclips-instance_method">
+  
+    - (<tt>Object</tt>) <strong>videoclips</strong>(params = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>gets list of videoclips</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li><em>required</em>
+
+<ul>
+<li>&#39;site&#39; OR &#39;sites&#39;   slug of site to filter to.  if passing &#39;sites&#39;, users can include a comma-delimited list of sites.  results will reflect all videoclips in the listed sites.</li>
+</ul></li>
+<li><em>optional</em>
+
+<ul>
+<li>&#39;list&#39; : type of list.  allowed values are &#39;all&#39;, &#39;active&#39;</li>
+<li>&#39;page&#39; : current page of listings.  pages begin at &#39;1&#39;</li>
+<li>&#39;per_page&#39; : number of videoclips to display per page</li>
+<li>&#39;section_id&#39; : id of section you wish to limit list to</li>
+<li>&#39;playlist_id&#39; : id of playlist you wish to limit list to</li>
+<li>&#39;id&#39; : id of videoclip - useful if you only want to get details of a single videoclip</li>
+<li>&#39;title&#39; : title of videoclip.  useful for searches, as this accepts incomplete titles and returns all matches.</li>
+<li>&#39;autoplay&#39; : true or false.  defaults to false.  used in embed code to prevent player from immediately playing</li>
+<li>&#39;embed_width&#39; : width (in pixels) that embed should be.  defaults to 640</li>
+<li>&#39;sort_by&#39; : data field to use to sort.  allowed fields are date, status, id, title, description</li>
+<li>&#39;sort_dir&#39; : direction of sort.  allowed values are &#39;asc&#39; (ascending) and &#39;desc&#39; (descending)</li>
+</ul></li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>false on failure, hash on success.  if failed, Volar.error can be used to get last error string</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+308
+309
+310
+311
+312
+313
+314
+315</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'cms-client-sdk-ruby/volar.rb', line 308</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_videoclips'>videoclips</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span> <span class='kw'>and</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>sites</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+		<span class='ivar'>@error</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;site&quot; or &quot;sites&quot; parameter is required.</span><span class='tstring_end'>'</span></span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>  
+	<span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>api/client/videoclip</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_post_body'>post_body</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+	<span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon May 19 09:54:32 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
