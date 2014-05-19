@@ -15,7 +15,7 @@ require 'aws-sdk'
 # * http://rubygems.org/gems/rest-client
 # * http://rubygems.org/gems/json
 class Volar
-	# @attr_reader [String] Access this attribute to see the last error that occurred
+	# @!attribute [String] Access this attribute to see the last error that occurred
 	attr_reader :error
 	# @!attribute [String] Storage of api key set by constructor
 	attr_accessor :api_key
